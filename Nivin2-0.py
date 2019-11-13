@@ -14,3 +14,10 @@ print('''O que eu poderia fazer por você?
 escolha_usuario = str(input('Escolha: '))
 if escolha_usuario not in '01':
     escolha_usuario = str(input('Resposta inválida, escolha uma opção existente: '))
+if escolha_usuario == '0':
+    exit()
+elif escolha_usuario == '1':
+    numero = float(input('Digite o número do qual gostaria da tabuáda: '))
+    for c in range(1, 11):
+        print(f'{numero} x {c} = {numero * c}')
+        c += 1
