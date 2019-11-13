@@ -7,3 +7,10 @@ elif gost_identificar in 'N':
     print('Okay, vamos lá')
 else:
     gost_identificar = str(input('Resposta inválida. Responda se gostaria ou não de se identificar [S/N]: '))
+print('='*50)
+print('''O que eu poderia fazer por você?
+[0] Finalizar o programa
+[1] Mostrar a tabuada de um número''')
+escolha_usuario = str(input('Escolha: '))
+if escolha_usuario not in '01':
+    escolha_usuario = str(input('Resposta inválida, escolha uma opção existente: '))
