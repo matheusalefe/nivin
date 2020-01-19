@@ -1,5 +1,6 @@
 from random import choice, randint
 from time import sleep
+from math import ceil
 gost_identificar = str(input('Gostaria de se identificar? [S/N]: ')).strip().upper()[0]
 if gost_identificar in 'S':
     nome = str(input('Certo, qual é o seu nome? ')).strip().capitalize()
@@ -82,3 +83,24 @@ Máquina: {pontos_m}''')
 Jogador: {pontos_j}
 Máquina: {pontos_m}''')
             print('='*50)
+        elif modo_de_jogo in '[2]':
+            print('Pense em um número entre 0 e 100 e eu adivinharei!')
+            print('Responda com Sim [S], Maior [M] e menor [m]')
+            minimo = 0
+            maximo = 100
+            escolha_computador = randint(0, 100)
+            escolha_jogador = str(input(f'Pensou em {escolha_computador}? [S/M/m]: ')).strip()
+            while True:
+                if escolha_jogador in '[S]':
+                    print('Ótimo! acertei!')
+                    break
+                else:
+                    while escolha_jogador not in '[S]':
+                        if escolha_jogador in '[M]':
+                            minimo = escolha_computador
+                            escolha_computador = ceil((maximo + minimo)/2)
+                            escolha_jogador = str(input(f'Pensou em {escolha_computador}? [S/M/m]: ')).strip()
+                        elif escolha_jogador in '[m]':
+                            maximo = escolha_computador
+                            escolha_computador = ceil((maximo + minimo)/2)
+                            escolha_jogador = str(input(f'Pensou em {escolha_computador}? [S/M/m]: ')).strip()
